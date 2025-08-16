@@ -14,6 +14,10 @@ public class Spieler : MonoBehaviour
     Vector2 sprungvektor = new Vector2(0,0);
     bool istInDerLuft;
 
+    public void GotoStart(){
+        transform.position = new Vector3(0.74f, -12.2f, 0);
+    }
+
     // Start is called before the first frame update
     void Start()
     {

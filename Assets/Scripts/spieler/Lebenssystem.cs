@@ -29,7 +29,7 @@ public class Lebenssystem : MonoBehaviour
         if(current_leben<=1){
             //game over script
         }else{
-        current_leben--;
+        current_leben-=1;
         }
     }
 }

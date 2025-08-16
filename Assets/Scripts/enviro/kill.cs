@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class kill : MonoBehaviour
 {
+    public Lebenssystem leben;
+    public Spieler player;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +15,11 @@ public class kill : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if touch die
+        
+    }
+
+    public void OnTriggerEnter(Collider other){
+        leben.deplete_leben();
+        player.GotoStart();
     }
 }
