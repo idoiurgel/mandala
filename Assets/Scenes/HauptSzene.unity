@@ -481,7 +481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49f8984c709e6f545aa2ea35749a0ab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  p_speed: 7
+  p_speed: 4
 --- !u!50 &1033460001
 Rigidbody2D:
   serializedVersion: 4
@@ -508,7 +508,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1033460002
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -955,6 +955,7 @@ GameObject:
   - component: {fileID: 1757221725}
   - component: {fileID: 1757221724}
   - component: {fileID: 1757221723}
+  - component: {fileID: 1757221726}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1005,7 +1006,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1036,6 +1037,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1757221726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1757221722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4e07e232cbb1d45aa8f4e321bf6184, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1033459999}
+  offset_x: 0
+  offset_y: 0
+  offset_z: -5
 --- !u!1 &1812735868
 GameObject:
   m_ObjectHideFlags: 0
