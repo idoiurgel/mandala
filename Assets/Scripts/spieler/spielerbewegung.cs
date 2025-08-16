@@ -6,7 +6,7 @@ public class Spieler : MonoBehaviour
 {
     
     public float Geschwindigkeit = 2f;
-    public float Sprungkraft = 10f;
+    public float Sprungkraft = 40f;
     public Rigidbody2D rigidbody;
 
     Vector2 bewegungsvektor = new Vector2(0,0);
@@ -14,8 +14,10 @@ public class Spieler : MonoBehaviour
     Vector2 sprungvektor = new Vector2(0,0);
     bool istInDerLuft;
 
+    public Vector2 spawn_pos = new Vector3(-13.42f, 1.59f, 0); 
+
     public void GotoStart(){
-        transform.position = new Vector3(0.74f, -12.2f, 0);
+        transform.position = spawn_pos;
     }
 
     // Start is called before the first frame update
@@ -49,6 +51,7 @@ public class Spieler : MonoBehaviour
         {
             bewegungsvektor = bewegungsvektor + Vector2.left * Geschwindigkeit;
         }
+        
     }
 
     void FixedUpdate(){

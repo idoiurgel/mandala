@@ -9,7 +9,7 @@ public class kill : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //affix under camera
+    
     }
 
     // Update is called once per frame
@@ -18,7 +18,8 @@ public class kill : MonoBehaviour
         
     }
 
-    public void OnTriggerEnter(Collider other){
+
+    public void OnTriggerEnter2D(Collider2D other){
         leben.deplete_leben();
         player.GotoStart();
     }

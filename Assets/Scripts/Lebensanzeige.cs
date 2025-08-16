@@ -15,4 +15,5 @@ public class Lebensanzeige : MonoBehaviour
     public void setzeLeben(int leben){
         slider.value = leben;
     }
+
 }

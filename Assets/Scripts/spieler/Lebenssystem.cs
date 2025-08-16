@@ -22,7 +22,7 @@ public class Lebenssystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void deplete_leben(){
@@ -30,6 +30,10 @@ public class Lebenssystem : MonoBehaviour
             //game over script
         }else{
         current_leben-=1;
+        leben_slider.setzeLeben(current_leben);
         }
     }
+    
+    
+
 }

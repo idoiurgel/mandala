@@ -20,7 +20,7 @@ public class trigger_script : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other){
+    public void OnTriggerEnter2D(Collider2D other){
         
     }
 }
