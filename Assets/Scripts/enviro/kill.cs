@@ -21,6 +21,6 @@ public class kill : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other){
         leben.deplete_leben();
-        player.GotoStart();
+        //player.GotoStart();
     }
 }
