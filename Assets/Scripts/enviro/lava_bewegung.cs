@@ -6,11 +6,13 @@ using UnityEngine;
 public class lava_bewegung : MonoBehaviour
 {
     public Rigidbody2D l_rigidbody;
-    public Spieler player;
+    public GameObject player;
     private Vector2 falling;
+    public Lebenssystem leben;
 
     public void OnTriggerEnter2D(Collider2D other){
-        //deplete_leben();
+        leben.deplete_leben();
+        Destroy(l_rigidbody);
     }
 
     void Start()
@@ -25,7 +27,7 @@ public class lava_bewegung : MonoBehaviour
                 Destroy(l_rigidbody);
             }
             if (player.transform.position.x >= this.transform.position.x){ // if player is below lava, fall
-                falling = falling + Vector2.down;
+                falling = falling + Vector2.down * 0.5f;
             }
 
             l_rigidbody.AddForce(falling, ForceMode2D.Impulse);
