@@ -14,10 +14,11 @@ public class Spieler : MonoBehaviour
     Vector2 sprungvektor = new Vector2(0,0);
     bool istInDerLuft;
 
-    public Vector2 spawn_pos = new Vector3(-13.42f, 1.59f, 0); 
+    //public Vector3 spawn_pos = new Vector3(-13.42f, 1.59f, 0); 
+    public GameObject spawnPunkt;
 
     public void GotoStart(){
-        transform.position = spawn_pos;
+        gameObject.transform.position = spawnPunkt.transform.position;
     }
 
     // Start is called before the first frame update
