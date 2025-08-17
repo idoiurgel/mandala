@@ -14,6 +14,9 @@ public class Spieler : MonoBehaviour
     Vector2 sprungvektor = new Vector2(0,0);
     bool istInDerLuft;
 
+    //public spriteImage sprite_idle;
+    //public spriteImage sprite_jump;
+
     //public Vector3 spawn_pos = new Vector3(-13.42f, 1.59f, 0); 
     public GameObject spawnPunkt;
 
