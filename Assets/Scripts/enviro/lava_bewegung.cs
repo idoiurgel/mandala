@@ -12,7 +12,7 @@ public class lava_bewegung : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other){
         leben.deplete_leben();
-        Destroy(l_rigidbody);
+       
     }
 
     void Start()
@@ -20,18 +20,14 @@ public class lava_bewegung : MonoBehaviour
         
     }
 
-    void Update()
-    {
-        if(l_rigidbody != null){
-            if (l_rigidbody.transform.position.y < -19){
-                Destroy(l_rigidbody);
-            }
-            if (player.transform.position.x >= this.transform.position.x){ // if player is below lava, fall
-                falling = falling + Vector2.down * 0.5f;
-            }
-
-            l_rigidbody.AddForce(falling, ForceMode2D.Impulse);
-        }
+    void Update() {
+  
+    
+    if (gameObject.transform.position.y <= -43.6 ) {
+        gameObject.transform.position = new Vector3(gameObject.transform.position.x,31.7f,0) ;}
+    
+    
+    
     }
 
 
