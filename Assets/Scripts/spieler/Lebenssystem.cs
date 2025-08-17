@@ -9,6 +9,7 @@ public class Lebenssystem : MonoBehaviour
     public Lebensanzeige leben_slider;
     public int player_max_leben;
     public int current_leben;
+    public GameObject GameOverScreen;
 
 
     // Start is called before the first frame update
@@ -26,7 +27,9 @@ public class Lebenssystem : MonoBehaviour
     }
 
     public void deplete_leben(){
-        if(current_leben<=1){
+        if(current_leben<1){
+            Debug.Log("GameOver");
+            GameOverScreen.SetActive(true);
             //game over script
         }else{
         current_leben-=1;
