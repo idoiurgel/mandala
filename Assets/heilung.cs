@@ -1,17 +1,14 @@
-
-    
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class newkill : MonoBehaviour
+public class heilung : MonoBehaviour
 {
-    public Lebenssystem leben;
-    public Spieler player;
+    public Lebenssystem lebenssystem;
     // Start is called before the first frame update
     void Start()
     {
-    
+        
     }
 
     // Update is called once per frame
@@ -20,9 +17,8 @@ public class newkill : MonoBehaviour
         
     }
 
-
-    public void OnTriggerEnter2D(Collider2D other){
-        leben.deplete_leben();
+    void OnTriggerEnter(Collision2D other){
+        Destroy(gameObject);
+        lebenssystem.heilen(1);
     }
-
 }

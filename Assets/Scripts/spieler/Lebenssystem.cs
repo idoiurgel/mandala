@@ -33,6 +33,11 @@ public class Lebenssystem : MonoBehaviour
         leben_slider.setzeLeben(current_leben);
         }
     }
+
+    public void heilen(int heilung){
+        current_leben+=heilung;
+        leben_slider.setzeLeben(current_leben);   
+    }
     
     
 
