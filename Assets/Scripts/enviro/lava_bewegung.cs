@@ -5,10 +5,7 @@ using UnityEngine;
 
 public class lava_bewegung : MonoBehaviour
 {
-    public Rigidbody2D l_rigidbody;
-    public GameObject player;
     private Vector2 falling;
-    public Lebenssystem leben;
 
 
     void Start()

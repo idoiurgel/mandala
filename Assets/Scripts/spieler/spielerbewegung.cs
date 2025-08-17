@@ -21,7 +21,7 @@ public class Spieler : MonoBehaviour
     public GameObject spawnPunkt;
 
     public void GotoStart(){
-        gameObject.transform.position = spawnPunkt.transform.position;
+            gameObject.transform.position = spawnPunkt.transform.position;
     }
 
     // Start is called before the first frame update
