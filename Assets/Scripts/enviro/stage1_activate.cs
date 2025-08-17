@@ -1,32 +1,61 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 
 public class trigger_script : MonoBehaviour
 {
     public GameObject schlucht;
     public GameObject platforms;
-    public Vector3 currentpos;
-    public Vector3 endpos;
-    public float speed;
+    public float moveDistance = 3f;       // Wie weit nach oben/unten bewegen
+    public float moveSpeed = 2f;          // Bewegungsgeschwindigkeit
+    public float shakeDuration = 0.5f;    // Wie lange wackeln
+    public float shakeAmount = 0.3f;      // Stärke des Wackelns
 
-    // Start is called before the first frame update
-    void Start()
+    private bool hasStarted = false;
+
+    void OnTriggerEnter2D(Collider2D other)
     {
-        currentpos = new Vector3(11f, -8.5f, 0);
-        endpos = new Vector3(25f, -8.5f, 0);
-        speed = 3f;
+        if (!hasStarted)
+        {
+            hasStarted = true;
+            StartCoroutine(SchluchtShakeAndMove());
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator SchluchtShakeAndMove()
     {
-        
-    }
+        // 1 - Wackeln (shake)
+        Vector3 originalPos = schlucht.transform.position;
 
-    public void OnTriggerEnter2D(Collider2D other){
-        Debug.Log("collided");
-        // schlucht2 wackelt, geht langsam nach x 25, platforms1 gehen nach oben
+        float elapsed = 0.0f;
+        while (elapsed < shakeDuration)
+        {
+            float offsetX = Random.Range(-1f, 1f) * shakeAmount;
+            float offsetY = Random.Range(-1f, 1f) * shakeAmount;
+            schlucht.transform.position = originalPos + new Vector3(offsetX, offsetY, 0);
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        schlucht.transform.position = originalPos;
+
+        // 2 - Nach oben bewegen
+        Vector3 schluchtTarget = originalPos + new Vector3(0, moveDistance, 0);
+        Vector3 platformsTarget = platforms.transform.position + new Vector3(0, -moveDistance, 0);
+
+        bool moving = true;
+        while (moving)
+        {
+            schlucht.transform.position = Vector3.MoveTowards(schlucht.transform.position, schluchtTarget, moveSpeed * Time.deltaTime);
+            platforms.transform.position = Vector3.MoveTowards(platforms.transform.position, platformsTarget, moveSpeed * Time.deltaTime);
+
+            if (Vector3.Distance(schlucht.transform.position, schluchtTarget) < 0.01f && 
+                Vector3.Distance(platforms.transform.position, platformsTarget) < 0.01f)
+            {
+                // Ziel erreicht
+                moving = false;
+            }
+            yield return null;
+        }
     }
 }
