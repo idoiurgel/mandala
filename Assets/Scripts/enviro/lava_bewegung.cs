@@ -22,12 +22,10 @@ public class lava_bewegung : MonoBehaviour
 
     void Update() {
   
+  // test
     
     if (gameObject.transform.position.y <= -43.6 ) {
         gameObject.transform.position = new Vector3(gameObject.transform.position.x,31.7f,0) ;}
-    
-    
-    
     }
 
 
