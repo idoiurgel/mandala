@@ -18,6 +18,7 @@ public class trigger_script : MonoBehaviour
         {
             hasStarted = true;
             StartCoroutine(SchluchtShakeAndMove());
+            
         }
     }
 
