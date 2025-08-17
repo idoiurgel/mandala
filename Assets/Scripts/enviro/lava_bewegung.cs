@@ -10,10 +10,6 @@ public class lava_bewegung : MonoBehaviour
     private Vector2 falling;
     public Lebenssystem leben;
 
-    public void OnTriggerEnter2D(Collider2D other){
-        leben.deplete_leben();
-       
-    }
 
     void Start()
     {

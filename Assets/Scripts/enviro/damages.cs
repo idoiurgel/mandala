@@ -20,7 +20,10 @@ public class damages : MonoBehaviour
 
 
     public void OnTriggerEnter2D(Collider2D other){
-        leben.deplete_leben();
+        if (other.gameObject.CompareTag("Player")){
+            leben.deplete_leben();
+        } 
+        
         //player.GotoStart();
     }
 }
