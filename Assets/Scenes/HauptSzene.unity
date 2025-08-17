@@ -222,6 +222,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   schlucht: {fileID: 1479525193}
   platforms: {fileID: 558447126}
+  currentpos: {x: 0, y: 0, z: 0}
+  endpos: {x: 0, y: 0, z: 0}
+  speed: 0
 --- !u!212 &285026015
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -413,8 +416,8 @@ Transform:
   m_GameObject: {fileID: 299174220}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.51, y: 14.51, z: 0}
-  m_LocalScale: {x: 0.9607, y: 2.9960241, z: 1}
+  m_LocalPosition: {x: -4, y: 19.3, z: 0}
+  m_LocalScale: {x: 1.8357055, y: 10.214644, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1514,7 +1517,7 @@ Transform:
   m_GameObject: {fileID: 1479525193}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.37, y: -8.58, z: 0}
+  m_LocalPosition: {x: 11, y: -8.5, z: 0}
   m_LocalScale: {x: 26.310966, y: 18.213642, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
