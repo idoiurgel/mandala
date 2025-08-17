@@ -17,7 +17,7 @@ public class heilung : MonoBehaviour
         
     }
 
-    void OnTriggerEnter(Collision2D other){
+    public void OnTriggerEnter2D(Collider2D other){
         Destroy(gameObject);
         lebenssystem.heilen(1);
     }

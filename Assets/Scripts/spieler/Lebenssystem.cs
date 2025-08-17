@@ -35,6 +35,7 @@ public class Lebenssystem : MonoBehaviour
     }
 
     public void heilen(int heilung){
+        Debug.Log("heal test");
         current_leben+=heilung;
         leben_slider.setzeLeben(current_leben);   
     }
