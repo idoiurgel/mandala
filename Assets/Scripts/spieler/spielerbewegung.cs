@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class Spieler : MonoBehaviour
 {
-    
+    public Transform BodenCheck;
+    public float BodenRadius = 0.2f;
     public float Geschwindigkeit = 2f;
     public float Sprungkraft = 40f;
     public Rigidbody2D rigidbody;
 
-    Vector2 bewegungsvektor = new Vector2(0,0);
-    Vector2 laufvektor = new Vector2(0,0);
-    Vector2 sprungvektor = new Vector2(0,0);
+    Vector2 bewegungsvektor = new Vector2(0, 0);
+    Vector2 laufvektor = new Vector2(0, 0);
+    Vector2 sprungvektor = new Vector2(0, 0);
     bool istInDerLuft;
 
     //public spriteImage sprite_idle;
@@ -20,8 +21,9 @@ public class Spieler : MonoBehaviour
     //public Vector3 spawn_pos = new Vector3(-13.42f, 1.59f, 0); 
     public GameObject spawnPunkt;
 
-    public void GotoStart(){
-            gameObject.transform.position = spawnPunkt.transform.position;
+    public void GotoStart()
+    {
+        gameObject.transform.position = spawnPunkt.transform.position;
     }
 
     // Start is called before the first frame update
@@ -33,15 +35,21 @@ public class Spieler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(rigidbody.velocity.y == 0.0f){
+        bool amBoden = Physics2D.OverlapCircle(BodenCheck.position, BodenRadius);
+        Debug.Log("Am Boden: " + amBoden);
+        Debug.Log("BodenCheck " + BodenCheck.position);
+        if (rigidbody.velocity.y == 0.0f)
+        {
             istInDerLuft = false;
-        }else{
+        }
+        else
+        {
             istInDerLuft = true;
         }
 
-        bewegungsvektor = new Vector2(0,0);
-        
-        if (Input.GetKey("up") && !istInDerLuft)
+        bewegungsvektor = new Vector2(0, 0);
+
+        if (Input.GetKey("up") && amBoden)
         {
             bewegungsvektor = bewegungsvektor + Vector2.up * Sprungkraft;
         }
@@ -55,12 +63,18 @@ public class Spieler : MonoBehaviour
         {
             bewegungsvektor = bewegungsvektor + Vector2.left * Geschwindigkeit;
         }
-        
+
     }
 
-    void FixedUpdate(){
+    void FixedUpdate()
+    {
         rigidbody.AddForce(bewegungsvektor, ForceMode2D.Impulse);
     }
-
-
 }
+
+
+
+
+
+
+

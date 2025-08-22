@@ -12,15 +12,30 @@ public class trigger_script : MonoBehaviour
 
     private bool hasStarted = false;
 
-    void OnTriggerEnter2D(Collider2D other)
+
+    void Update()
     {
-        if (!hasStarted)
+        
+     playerisindernaehe();
+
+    }
+
+ void playerisindernaehe() {
+
+
+bool kleinerabstand = Vector2.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < 2f;
+
+
+
+
+        if (kleinerabstand && !hasStarted)
         {
             hasStarted = true;
             StartCoroutine(SchluchtShakeAndMove());
-            
         }
-    }
+        
+
+ }
 
     IEnumerator SchluchtShakeAndMove()
     {
